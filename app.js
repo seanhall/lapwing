@@ -4,7 +4,6 @@
 
 var express = require('express')
     , app = module.exports = express.createServer()
-    , fs = require('fs')
     ;
 
 // Configuration
@@ -22,7 +21,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/compile', function(req,res){
-	var COMPILER_JAR = 'plovr.jar';
+	var COMPILER_JAR = 'compiler/plovr.jar';
 	var _exec = require('child_process').exec;
 	function compile(srcPath, distPath) {
 	    _exec(
