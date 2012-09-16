@@ -1,0 +1,45 @@
+p This page hosts the build process for the APTM standard JS library. Executing a build is simple:
+ol
+	li Edit the source JS file(s) located at /templates/stdlib/src.
+	li Commit your changes.
+	li Click the link below. This will execute builds of both the development (aptmlib.js) and production (aptmlib.min.js) scripts.
+	li Map Charles to the new build and verify that the build was successful and that the form behaves with no errors.
+	li Commit the changes to these scripts, deploy and retest the form.
+p
+	a#build(href='/compile') Execute build
+h3.details Details:
+p
+	a(href='http://code.google.com/p/plovr/downloads/detail?name=plovr-4b3caf2b7d84.jar&can=2&q=', target='_new') Plovr vFeb2012
+p From 
+	a(href='http://plovr.com/', target='_new') http://plovr.com/
+	|: plovr is a build tool that dynamically recompiles JavaScript and Closure Template code. It is designed to simplify Closure development, and to make it more enjoyable.
+p
+	strong Plovr 
+	| is an implementation of the Google Closure Compiler and other Closure tools. It is designed to minify your code and manage dependencies between modules, so if you have one script that refers to another, it will process that dependency and compile your scripts in order of reference/execution. Plovr is executed via a .jar file, called in our application by node.js, and is governed by a simple JSON file of build parameters.  More info at the 
+	a(href='http://code.google.com/p/plovr/wiki/GettingStarted') Google Code project home
+	|.
+p &nbsp;
+p
+	a(href='http://code.google.com/p/closure-library/source/checkout') Closure Tools
+p
+	strong Closure 
+	| is a toolset released by Google that powers many of its largest and most widely used products. In addition to the 
+	a(href='https://developers.google.com/closure/compiler/', target='_new') Closure Compiler
+	|, the library provides a 
+	a(href='https://developers.google.com/closure/templates', target='_new') templating engine
+	|, a 
+	a(href='https://developers.google.com/closure/utilities', target='_new') linter
+	|, a 
+	a(href='http://code.google.com/p/closure-stylesheets/', target='_new') stylesheet language 
+	|(similar to SASS, LESS, etc.), and more.
+p &nbsp;
+p
+	a(href='http://nodejs.org/download/', target='_new') node.js v0.8.9
+p From 
+	a(href='http://nodejs.org/', target='_new') http://nodejs.org/
+	|: Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
+p
+	strong node.js 
+	| provides a runtime environment for executing Javascript server-side. It works with a multitude of libraries to make development and deployment of practical, scaleable web applications quick and easy. It works well with a variety of database applications (including 
+	a(href='http://www.mongodb.org/', target='_new') MongoDB
+	|, a NoSQL DB app), facilitating MVC patterns in one common language from front to back.
