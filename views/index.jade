@@ -1,12 +1,24 @@
-p This page hosts the build process for the APTM standard JS library. Executing a build is simple:
+p Welcome to Lapwing, a Plovr (<a href="http://plovr.com/">http://plovr.com/</a>) implementation mated with a node/express-powered web UI for easy one-click JS builds with dependency management. Executing a build is simple:
 ol
-	li Edit the source JS file(s) located at /templates/stdlib/src.
-	li Commit your changes.
-	li Click the link below. This will execute builds of both the development (aptmlib.js) and production (aptmlib.min.js) scripts.
-	li Map Charles to the new build and verify that the build was successful and that the form behaves with no errors.
-	li Commit the changes to these scripts, deploy and retest the form.
+	li Edit the source JS file(s) located in /src.
+	li Edit the /config files with your desired input/output paths/parameters.
+	li Click the link below. This will execute builds of both the development ([file].js) and production ([file].min.js) scripts and save the output to /deploy.
 p
 	a#build(href='/compile') Execute build
+
+h3.notes Notes:
+ul
+	li Config files are stored in /config. If you wish to add an output file, copy an existing config file, save to /config, add the file/path to app.js, restart node and go.
+	li dev.js inherits from prod.js so you do not need to specify an input fileset there (unless you want a different input set for some reason).
+	li Output will be saved in /deploy.
+	li Source files go in /src. ;)
+	li Requires node.js and express (npm install express).
+	li 
+		strong All source files must be namespaced with goog.provide(); similarly, dependencies must be declared with goog.require(). 
+		| For more information, refer to 
+		a(href="https://developers.google.com/closure/library/docs/closurebuilder", target="_new") https://developers.google.com/closure/library/docs/closurebuilder
+		|.
+
 h3.details Details:
 p
 	a(href='http://code.google.com/p/plovr/downloads/detail?name=plovr-4b3caf2b7d84.jar&can=2&q=', target='_new') Plovr vFeb2012
@@ -15,7 +27,7 @@ p From
 	|: plovr is a build tool that dynamically recompiles JavaScript and Closure Template code. It is designed to simplify Closure development, and to make it more enjoyable.
 p
 	strong Plovr 
-	| is an implementation of the Google Closure Compiler and other Closure tools. It is designed to minify your code and manage dependencies between modules, so if you have one script that refers to another, it will process that dependency and compile your scripts in order of reference/execution. Plovr is executed via a .jar file, called in our application by node.js, and is governed by a simple JSON file of build parameters.  More info at the 
+	| is an implementation of the Google Closure Compiler and other Closure tools. It is designed to minify your code and manage dependencies between modules, so if you have one script that refers to another, it will process that dependency and compile your scripts in order of reference/execution. Plovr is executed via a .jar file, called in app.js, and is governed by a simple JSON file of build parameters.  More info at the 
 	a(href='http://code.google.com/p/plovr/wiki/GettingStarted') Google Code project home
 	|.
 p &nbsp;
@@ -31,15 +43,4 @@ p
 	a(href='https://developers.google.com/closure/utilities', target='_new') linter
 	|, a 
 	a(href='http://code.google.com/p/closure-stylesheets/', target='_new') stylesheet language 
-	|(similar to SASS, LESS, etc.), and more.
-p &nbsp;
-p
-	a(href='http://nodejs.org/download/', target='_new') node.js v0.8.9
-p From 
-	a(href='http://nodejs.org/', target='_new') http://nodejs.org/
-	|: Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
-p
-	strong node.js 
-	| provides a runtime environment for executing Javascript server-side. It works with a multitude of libraries to make development and deployment of practical, scaleable web applications quick and easy. It works well with a variety of database applications (including 
-	a(href='http://www.mongodb.org/', target='_new') MongoDB
-	|, a NoSQL DB app), facilitating MVC patterns in one common language from front to back.
+	| and more.
